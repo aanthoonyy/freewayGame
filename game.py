@@ -29,7 +29,7 @@ def playGame():
 
 
     screen = pygame.display.set_mode((screen_width, screen_height))
-    pygame.display.set_caption("Highway Runner")
+    pygame.display.set_caption("Freeway Runner - Game")
 
 
     font = pygame.font.SysFont("Arial", 24)

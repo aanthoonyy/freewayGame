@@ -13,11 +13,11 @@ class drawMenu():
         screen.blit(background_image, (0, scroll_y))
 
         # drawText(self, screen, color, txtSize, msg):
-        src.services.drawTextService.drawtext.drawText(screen, (0, 0, 0), 60, ("HIGHWAY"), (Config.WIDTH / 2),
+        src.services.drawTextService.drawtext.drawText(screen, (0, 0, 0), 60, ("FREEWAY"), (Config.WIDTH / 2),
                                                        (Config.HEIGHT / 2) - 185)
         src.services.drawTextService.drawtext.drawText(screen, (0, 0, 0), 60, ("RUNNER"), (Config.WIDTH / 2),
                                                        (Config.HEIGHT / 2) - 131)
-        src.services.drawTextService.drawtext.drawText(screen, (255, 255, 255), 60, ("HIGHWAY"), (Config.WIDTH / 2),
+        src.services.drawTextService.drawtext.drawText(screen, (255, 255, 255), 60, ("FREEWAY"), (Config.WIDTH / 2),
                                                        (Config.HEIGHT / 2) - 189)
         src.services.drawTextService.drawtext.drawText(screen, (255, 255, 255), 60, ("RUNNER"), (Config.WIDTH / 2),
                                                        (Config.HEIGHT / 2) - 135)

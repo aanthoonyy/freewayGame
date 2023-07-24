@@ -13,7 +13,7 @@ from src.components.drawMenuClass import drawMenu
 pygame.init()
 
 screen = pygame.display.set_mode((Config.WIDTH, Config.HEIGHT))
-pygame.display.set_caption("Highway Runner - Menu")
+pygame.display.set_caption("Freeway Runner - Menu")
 
 def main_menu():
     running = True
