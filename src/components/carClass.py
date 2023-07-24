@@ -1,12 +1,9 @@
-import random
 import pygame
-import time
-from pygame.locals import *
-from moviepy.editor import *
-from config import Config
+from src.utils.config import Config
 
 class Car(pygame.sprite.Sprite):
-    def __init__(self):
+
+    def __init__(self, car_x, car_y, vec):
         super().__init__()
         self.image = pygame.image.load("data/assets/car.png").convert_alpha()
         self.rect = self.image.get_rect()
@@ -18,7 +15,8 @@ class Car(pygame.sprite.Sprite):
         self.lockoutW = False #stops the W key from being used after initial launch
         self.lane_center_x = [85, 182, 273]
 
-    def update(self, elapsed_time):
+
+    def update(self, elapsed_time, vec):
         self.acc = vec(0, 0)
         deceleration_factor = 90
         keys = pygame.key.get_pressed()
@@ -35,13 +33,13 @@ class Car(pygame.sprite.Sprite):
 
 
         if not keys[pygame.K_w]:
-            deceleration_factor = 0.999 # Adjust this value (0.0 to 1.0) for slower speed loss when 'W' is released
+            deceleration_factor = 0.999 #(0.0 to 1.0) for slower speed
         else:
-            deceleration_factor = 0.95  # Adjust this value (0.0 to 1.0) for normal deceleration when 'W' is pressed
+            deceleration_factor = 0.95  #(0.0 to 1.0) for normal deceleration
 
         lane_distance = self.pos.x - self.lane_center_x[self.get_nearest_lane()]
-        #lane_assist = lane_distance * 0.0001  # Adjust the value to control the strength of the assist
-        lane_assist = lane_distance * 0.001  # Adjust the value to control the strength of the assist
+        #lane_assist = lane_distance * 0.0001
+        lane_assist = lane_distance * 0.001
         #Lane Assist Values
         # I really like 0.001 for like a mid level
 
@@ -58,8 +56,8 @@ class Car(pygame.sprite.Sprite):
 
         self.player_position = self.pos.copy()
 
-        # Limit the maximum speed
-        max_speed = 100  # Adjust the maximum speed value as needed
+
+        max_speed = 100
         self.velocity.x = max(-max_speed, min(self.velocity.x, max_speed))
         self.velocity.y = max(-max_speed, min(self.velocity.y, max_speed))
 
