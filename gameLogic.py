@@ -10,7 +10,8 @@ import src.components.score
 from src.components.line import lineHitbox
 from src.services.musicService import MusicService
 from src.components.score import scoreBoard
-import main
+
+
 
 def playGame():
     vec = pygame.math.Vector2
@@ -219,10 +220,10 @@ def playGame():
         #spawn mile counter
         src.components.score.scoreBoard(screen, score)
 
-    main.main_menu()
+    #main_menu()
 
 
 #quit
-pygame.quit()
+#pygame.quit()
 
 

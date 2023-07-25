@@ -1,14 +1,11 @@
-import random
 import pygame
-
-import src.services.musicService
-import src.services.drawTextService
 from src.utils.config import Config
-from game import playGame
-from src.components.score import readHighScore
-from src.services.musicService import MusicService
-#import src.components.drawMenuClass
 from src.components.drawMenuClass import drawMenu
+from src.services.musicService import MusicService
+import src.services.trafficFreq
+import src.components.score
+from src.components.score import scoreBoard
+import gameLogic
 
 pygame.init()
 
@@ -37,11 +34,13 @@ def main_menu():
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.KEYDOWN:
-
                 src.services.musicService.MusicService.getMenuClickSound()
-                playGame()
+                gameLogic.playGame()
 
         pygame.display.update()
 main_menu()
+
+
+
 
 pygame.quit()
